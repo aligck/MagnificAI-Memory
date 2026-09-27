@@ -6,8 +6,9 @@ Magnific araçlarının ayarlarını model başına hatırlayan Tampermonkey use
 
 | Dosya | Durum |
 |---|---|
-| [src/magnific-memory.user.js](src/magnific-memory.user.js) | `3.0.0-beta.16` geliştirme kaynağı; Video Upscaler, Modify Video, Editor Adjust, Relight, Image Upscaler, Image/Video Generator (çoklu model, multi-shot), Cinematic Shot, Sound FX, Voice Changer, Skin Enhancer canlı doğrulandı; kalan araçlar için `docs/STATUS.md` |
-| [releases/magnific-memory-beta.16.user.js](releases/magnific-memory-beta.16.user.js) | 27 Eylül 2026'da Chrome'a yüklü beta.16'nın arşivi |
+| [src/magnific-memory.user.js](src/magnific-memory.user.js) | `3.0.0-beta.17` geliştirme kaynağı; Video Upscaler, Modify Video (Clip Editor dahil), Editor Adjust, Music, Voice, Audio, Image Editor, Relight, Image Upscaler, Image/Video Generator (çoklu model, multi-shot), Cinematic Shot, Sound FX, Voice Changer, Skin Enhancer canlı doğrulandı; kalan araçlar için `docs/STATUS.md` |
+| [releases/magnific-memory-beta.17.user.js](releases/magnific-memory-beta.17.user.js) | 27 Eylül 2026'da Chrome'a yüklü beta.17'nin arşivi |
+| [releases/magnific-memory-beta.16.user.js](releases/magnific-memory-beta.16.user.js) | beta.16 arşivi |
 | [releases/magnific-memory-beta.12.user.js](releases/magnific-memory-beta.12.user.js) | beta.12 arşivi |
 | [releases/magnific-memory-beta.11.user.js](releases/magnific-memory-beta.11.user.js) | beta.11 arşivi |
 | [releases/magnific-memory-beta.8.user.js](releases/magnific-memory-beta.8.user.js) | Öncesinde yüklü beta.8'in değiştirilmemiş arşivi |
@@ -37,7 +38,7 @@ Testler gerçek Vue + jsdom ile çalışır; canlı Magnific testlerinin yerini 
 npm run serve:dev
 ```
 
-Ardından `http://127.0.0.1:43129/magnific-memory.user.js` adresini açın. Bu adres **güncel geliştirme dosyasını** (şu an beta.16) sunar. Kurulumdan sonra sunucunun sürekli çalışması gerekmez. Yükleme, mevcut Magnific hafıza betiğinin üzerine güncelleme olarak yapılmalı; iki sürüm aynı anda etkin olmamalı. Zaten kurulu sürümü güncellemek için Tampermonkey panosundaki "Güncellemeleri denetle" eylemi de bu adresi yeniden okur.
+Ardından `http://127.0.0.1:43129/magnific-memory.user.js` adresini açın. Bu adres **güncel geliştirme dosyasını** (şu an beta.17) sunar. Kurulumdan sonra sunucunun sürekli çalışması gerekmez. Yükleme, mevcut Magnific hafıza betiğinin üzerine güncelleme olarak yapılmalı; iki sürüm aynı anda etkin olmamalı. Zaten kurulu sürümü güncellemek için Tampermonkey panosundaki "Güncellemeleri denetle" eylemi de bu adresi yeniden okur.
 
 ## Klasörler
 

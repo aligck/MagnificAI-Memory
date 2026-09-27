@@ -1,5 +1,12 @@
 # Sürüm geçmişi
 
+## 3.0.0-beta.17 — Clip Editor: varlıktan bağımsız bağlam ve dıştaki Modify çubuğu
+
+- Canlı bulgu: bir videoyu Modify'da açmak `/app/video-clip-editor/:creationId?` rotasına götürüyor; bağlam videonun kimliğini içerdiği için her video ayrı kayıt alıyordu. Rota, uygulamanın kendi router kaydındaki dinamik parçalar (`:param`) atılarak normalize edilir (`/app/video-clip-editor`); parametresiz rotalar değişmez, eski kayıtlar korunur.
+- Canlı bulgu: Clip Editor'ın Modify çubuğu (`VideoModifyModelSelector id="video-clip-editor-modify"`) araç kenar panelinin dışında olduğu için native adapter bağlanmıyordu. Panel içinde işaret yoksa Modify işareti belgede aranır; bu dış kaynak kendi model bağlamını tutar (`data-magnific-memory-native-context`), kenar paneldeki kontroller (ör. hız rampası Keep Audio / Slow-motion smoothness) generic yolla ve kendi bağlamında kaydedilir.
+- Hız rampası preset eğrisi (a1–a5, p1–p5) videoya göre düzenlenen içerik sayılır ve kaydedilmez; `useVideoModifyTimeRanges` zaman aralıkları ve referansları da kaynak videoya bağlı içeriktir.
+- Yerel testler 19 senaryo: `test-clip-editor-memory.mjs` (beta.16'da başarısız).
+
 ## 3.0.0-beta.16 — model geçişi koruması bağlama bağlı
 
 - Canlı bulgu (beta.15, arka plandaki sekme): Skin Enhancer'da flexible'da grain 5 → creative'e geçiş → flexible'a dönüşte 2 geldi. Model geçişini koruyan pencere yalnızca 1 sn'lik zamanlayıcıyla kapanıyordu; kısıtlanan sekmede bu zamanlayıcı yeni bağlamı algılayan taramadan önce çalışabiliyor ve uygulamanın yeni model için yaptığı sıfırlama önceki modelin kaydına yazılıyordu. Pencere artık DOM'daki model bağlamı taranan bağlama eşitlenene kadar açık kalır.

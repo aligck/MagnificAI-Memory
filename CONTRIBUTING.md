@@ -10,4 +10,9 @@
 
 Yeni ortamda sadece sohbet modeli varsa yerel klasör ve tarayıcı oturumuna otomatik erişim olmaz. Canlı araca erişmeden bütün menüler gezilmiş gibi raporlamayın.
 
-`npm run serve:dev` beta.9 geliştirme kaynağını loopback adresinden sunar; kurulum için kullanılır. Kurulumdan sonra bu sunucu scriptin çalışması için gerekli değildir.
+`npm run serve:dev` güncel `src/` dosyasını loopback adresinden sunar; kurulum için kullanılır. Kurulumdan sonra bu sunucu scriptin çalışması için gerekli değildir. Her sürüm Tampermonkey'nin kendi onay ekranından kurulur.
+
+Kurallar:
+- Kayıt dışlama kuralları değişirse `cleanup()` içindeki `revisionOfRules` değerini artırın; eski kayıtlar bir kez temizlenir.
+- Bağlam anahtarı rota + model + alan kimliğidir. Rota, uygulama router'ındaki dinamik parçalar (`:creationId` vb.) atılarak oluşturulur; açık olan varlık kimliği anahtara girmemelidir.
+- Yeni testin, düzelttiği kusura sahip önceki sürümde başarısız olduğunu doğrulayın.

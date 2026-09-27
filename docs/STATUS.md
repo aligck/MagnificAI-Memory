@@ -4,11 +4,11 @@ Başlangıç tarihi: 27 Eylül 2026. Proje DeepSeek'e devir için mevcut çalı�
 
 ## Sürümler
 
-- `src/magnific-memory.user.js`: `3.0.0-beta.16` geliştirme kaynağı (altıncı oturum: beta.12 içerik/katalog sızıntıları, çoklu model bağlamı, multi-shot modu, tek seferlik kayıt temizliği; beta.13 görsel formu kimliği; beta.14–15 model algılaması; beta.16 bağlama bağlı model geçişi koruması). Arşivi `releases/magnific-memory-beta.16.user.js`; ara sürümler 13–15 ayrıca arşivlenmedi (hepsi 16'da).
+- `src/magnific-memory.user.js`: `3.0.0-beta.17` geliştirme kaynağı (altıncı oturum: beta.12 içerik/katalog sızıntıları, çoklu model bağlamı, multi-shot modu, tek seferlik kayıt temizliği; beta.13 görsel formu kimliği; beta.14–15 model algılaması; beta.16 bağlama bağlı model geçişi koruması; beta.17 Clip Editor rota normalizasyonu ve dış Modify çubuğu). Arşivi `releases/magnific-memory-beta.17.user.js`; ara sürümler 13–15 ayrıca arşivlenmedi.
 - `releases/magnific-memory-beta.12.user.js`: beta.12 arşivi.
 - `releases/magnific-memory-beta.11.user.js`: beta.11 arşivi (flip canvas yarışı düzeltmesi).
 - `releases/magnific-memory-beta.8.user.js`: kullanıcının Chrome'unda kurulu olan beta.8'in değiştirilmemiş arşivi. Yerel test ve kurulu script sürümü ayrı şeylerdir.
-- Kullanıcının Chrome'unda kurulu sürüm 27 Eylül 2026'da beta.8 → beta.10 → beta.11 → beta.12 → beta.13 → beta.14 → beta.15 → beta.16 olarak **üzerine güncelleme** ile taşındı; tek script kaydı korundu. Beta.12'den itibaren iki ek izin (`GM_listValues`, `GM_deleteValue`).
+- Kullanıcının Chrome'unda kurulu sürüm 27 Eylül 2026'da beta.8 → beta.10 → beta.11 → beta.12 → beta.13 → beta.14 → beta.15 → beta.16 → beta.17 olarak **üzerine güncelleme** ile taşındı; tek script kaydı korundu. Beta.12'den itibaren iki ek izin (`GM_listValues`, `GM_deleteValue`).
 
 ## Canlı doğrulama — 27 Eylül 2026
 
@@ -143,6 +143,23 @@ Rotalar uygulamanın kendi router'ından (`$router.getRoutes()`) alındı; tahmi
 | Video Dubbing | `VideoDubbingForm`, generic | Ses (orijinal/klon), dil ve altyazı dili yakalanıyor, bağlam `default`; altyazı stili kaynak video olmadan devre dışı |
 | Video Face Swap | — | Girdi olmadan ayar kontrolü yok (gated) |
 
+### 27 Eylül 2026 — altıncı oturum (kapanış): yeniden canlı testler ve Clip Editor (beta.17)
+
+**Beta.12+ kurallarıyla yeniden canlı kaydet → yenile testleri (kurulu beta.16, uygulamanın kendi form API'leriyle; sonra tabana dönüldü):**
+
+| Araç / form kimliği | Test | Sonuç |
+|---|---|---|
+| Music `music-generator-page-form` (ElevenLabs Music v2) | Instrumental açık + `mp3_48000_128` | Reload sonrası ikisi geri geldi; kapalı/`auto`ya dönüldü |
+| Voice `voiceover-page-form` (eleven_v3) | stability 0.5 → 0.8 | Reload sonrası 0.8; 0.5'e dönüldü |
+| Audio `audio-generator-page-form` (Seed Audio 1.0) | pitch 0 → 3 | Reload sonrası 3; 0'a dönüldü |
+| Image Editor `talk-to-image` (Nano Banana 2 Flash, rota `/app/image-editor/:family/:creation`) | resolution 2k → 4k | Reload sonrası 4k, bağlam `/app/image-editor::imagen-nano-banana-2-flash`; 2k'ya dönüldü |
+
+**Clip Editor (beta.17, canlı doğrulandı):** Mevcut bir video `/app/video-modify/:id` ile açılınca uygulama `/app/video-clip-editor/:creationId?` rotasına geçiyor. Canlı gözlem (beta.16): bağlam `…/video-clip-editor/<id>::default` (varlık kimliği anahtarda), Modify çubuğu (`VideoModifyModelSelector#video-clip-editor-modify`) kenar panel dışında olduğu için bağlanmıyor; kenar panelde hız rampası Keep Audio ve Slow-motion smoothness generic olarak yakalanıyor. Beta.17 canlı: bağlam `/app/video-clip-editor::default`, Modify çubuğu `/app/video-clip-editor::video-modify-minimax-h3`; çözünürlük 2K → 1080p reload sonrası geri geldi, 2K'ya dönüldü. Yerel test `test-clip-editor-memory.mjs`. Hız rampası eğrisi (a1–a5, p1–p5) ve Modify zaman aralıkları videoya bağlı içerik olarak kaydedilmez.
+
+**Eski keşiften kalan seçimler:** Video Generator'da keşifte bırakılan PixVerse 5.5 hâlâ seçiliydi; başlangıçtaki Auto (`auto-mode`) seçildi. Image Editor'da artık Nano Banana 2 Flash seçili (keşifte bırakılan Nano Banana 2 değil) → kullanıcı değişikliği sayılıp dokunulmadı. Modify zaten MiniMax H3'te.
+
+**Kapsam dışı bırakılanlar (kullanıcıyla kararlaştırıldı):** Designer, 3D Scenes ve Spaces belge/board düzenleyicileri; ayarları belgeyle birlikte saklanıyor, model başına hafıza anlamlı değil. Firefox bu turda kapsam dışı.
+
 ### Video Upscaler (beta.10 kaynağıyla)
 
 | Doğrulanan | Sonuç |
@@ -207,14 +224,14 @@ Bu turda eklenen/genişletilen yerel kapsam:
 
 - [x] Kullanıcının Chrome'unda beta.10'u kurup gerçek TM koşusunda Video Upscaler/Modify reload testini tekrarla. (27 Eylül 2026, üçüncü oturum: tamamlandı)
 - [x] Magnific oturumu olan bir ortamda LUT/intensity ve x/y flip canlı testi (farklı görsel açma, kapat/aç, reload). (27 Eylül 2026, dördüncü oturum: flip + intensity tamam, LUT seçici bu yayında panelde görünmüyor — bknz. yukarıdaki sınırlar)
-- [ ] Modify canlı kayıt: video verildiğinde time range/speed ramp ve koşullu seçenekler. **Gate:** erişilebilir kapsamda video içeriği yok (beşinci oturum); video bulunan bir proje/oturum gerektiriyor.
+- [x] Modify canlı kayıt: video verildiğinde time range/speed ramp ve koşullu seçenekler. (altıncı oturum: mevcut video Clip Editor'da açıldı; zaman aralıkları ve rampa eğrisi içerik; rampa ses/smoothness generic; Clip Editor Modify çubuğu ve rota kimliği beta.17 ile, canlı doğrulandı)
 - [x] Video Generator multi-shot güvenli duration kaydı; prompt/ID korunması, sıralama ve eksik sahne davranışı. (altıncı oturum: sahne süreleri konum yaprağı olarak kaydediliyor, prompt/id kaydedilmiyor; uygulama sahneleri yenilemede tutmadığı için reload'da geri gelecek sahne yok — bu tasarım gereği; multi-shot modu + türetilmiş süre geri yüklemesinin sahnesiz form bıraktığı kusur beta.12'de düzeltildi)
 - [x] Voice menü JSON'ları yeniden çıkarılmalı; eski boş menüler seçenek yok anlamına gelmiyor. (beşinci oturum: API envanteri çıkarıldı, private/ altında)
 - [x] Audio'nun bütün range/preset/output seçenekleri. (beşinci oturum: envanter çıkarıldı, private/ altında)
 - [x] Relight Light Transfer/preset/resolution menüleri. (altıncı oturum: döküm `private/original-handoff/relight-menus-2026-09-27.json`; katalog sızıntısı bulundu ve düzeltildi)
 - [x] Image Upscaler bütün Creative/Precision modelleri ve bağlam ayrımı. (altıncı oturum: 6 mod envanteri; Creative ↔ Precision v1 A → B → A ve reload canlı geçti; diğer 4 mod aynı bağlam mekanizmasıyla, tek tek canlı denenmedi)
 - [x] Image Generator ilk modellerin eksik kapalı menüleri ve çoklu model modu. (altıncı oturum: 50 modelin girdi matrisi `private/original-handoff/image-generator-inputs-2026-09-27.json`; bu yayında Image formunda `modelIds` yok, çoklu model Video Generator'da — beta.12 ile ayrı bağlam)
-- [~] Kalan image/video/audio/3D/design araçlarının koşullu seçenekleri. (altıncı oturum: image/audio araçları, Video Relight/Dubbing/Face Swap tarandı, 4 kusur düzeltildi — yukarıdaki tablo; Design/3D/Spaces proje oluşturduğu için gezilmedi, Character Generator plan kısıtlı)
+- [x] Kalan image/video/audio/3D/design araçlarının koşullu seçenekleri. (altıncı oturum: image/audio araçları, Video Relight/Dubbing/Face Swap tarandı, 4 kusur düzeltildi — yukarıdaki tablo; Design/3D/Spaces proje oluşturduğu için gezilmedi, Character Generator plan kısıtlı)
 - [ ] Firefox gerçek kurulum uyumluluğu.
 - [x] v1 kayıt migration; beta.8 yanlış help-context kayıtları için güvenli geçiş değerlendirmesi. (altıncı oturum, karar: **uygulanmadı**. v1 kayıtları model *görünen adıyla* ve DOM menü özetleriyle (`menus[].summary`, `fields[].ref`) tutuluyor; v3 ise gerçek `modelId` ve form alanı kullanıyor. Tek güvenli eşleme v2'nin `legacy()` fonksiyonundaki Image/Video metin ayrıştırmasıydı ve v3 zaten v2 kayıtlarını okuyor. v3 her modeli ilk ziyarette mevcut değerlerle kaydettiği ve kullanıcı v3'ü uzun süredir kullandığı için v1 kaydının hâlâ etkili olabileceği model sayısı küçük; ad → kimlik eşlemesini tahmine dayalı yazmak devir kuralına aykırı. Beta.8'in help-context'li Video Upscaler kayıtları yalnızca kullanılmayan eski anahtarlar; v3 bağlamı artık mod değeri, silinmeleri gerekmiyor.)
 - [x] Eski GPT/Seedream test tercihlerini kullanıcı sonradan değiştirmediyse geri alma. (altıncı oturum: değerler test bırakıldığı gibiydi; GPT 2.5 `16:9/2k/medium`, Seedream 5 Pro `4:3/2k/high` olarak geri alındı, seçili model MAI Image 2.5'e döndü)

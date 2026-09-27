@@ -2,8 +2,8 @@
 
 Önce `docs/STATUS.md`, ardından `docs/HANDOFF.md` okuyun. Kullanıcı çalışma kapsamını genişletmedikçe mevcut eksikleri tamamlayın; projeye yeni üretim özellikleri eklemeyin.
 
-- Güncel kaynak `src/magnific-memory.user.js`, son kurulu sürüm arşivi `releases/magnific-memory-beta.16.user.js`.
-- Beta.16 final değildir; doğrulanmış ve açık kapsam `docs/STATUS.md` içindedir. Yerel testlerin geçmesi canlı kapsamın tamamlandığı anlamına gelmez.
+- Güncel kaynak `src/magnific-memory.user.js`, son kurulu sürüm arşivi `releases/magnific-memory-beta.17.user.js`.
+- Beta.17 final değildir; doğrulanmış ve açık kapsam `docs/STATUS.md` içindedir. Yerel testlerin geçmesi canlı kapsamın tamamlandığı anlamına gelmez.
 - Kayıt dışlama kuralları değişirse `cleanup()` içindeki `revisionOfRules` değerini artırın; eski kayıtlar bir kez temizlenir.
 - Ortak alan tanıma, model başına ayrı değerler. Model adına bağlı alan allowlist'i eklemeyin.
 - Prompt, negative prompt, talimat, script/metin içeriği, referanslar, dosyalar ve oturum bilgilerini depolamayın.
@@ -12,7 +12,7 @@
 - Native kayıt yolu varken eski generic widget kayıtlarını aynı anda uygulamayın.
 - Yeni test/değişiklikten sonra `npm test` çalıştırın. Canlı testleri ayrıca durum belgesine yazın.
 - Kullanıcı üretim/kredi harcamayı ayrıca istemedikçe Generate/Upscale/Preview/Save Changes işlemlerini test amacıyla başlatmayın.
-- Tek keşif sekmesini kullanın; gereksiz kurulum sekmelerini kapatın. Araç bağlantısı hatasını userscript arızası olarak raporlamayın.
+- Tek keşif sekmesini kullanın; kullanıcı her araç çağrısında yeni Magnific sekmesi açılmasını istemiyor; gereksiz kurulum sekmelerini kapatın. Araç bağlantısı hatasını userscript arızası olarak raporlamayın.
 - Gerçek hesap ekranları, ham state/DOM kayıtları ve üçüncü taraf bundle'lar yalnızca Git tarafından dışlanan `private/` altında tutulmalı. Kimlik bilgileri ve referans URL'lerini commit etmeyin.
 - Eski test ayarlarını geri alırken kullanıcının sonradan değiştirdiği tercihleri körlemesine ezmeyin.
 - Scriptin `@name` ve `@namespace` değerlerini sırf proje adı değişti diye değiştirmeyin; Tampermonkey kayıtları kaybolabilir veya ikinci script oluşabilir.

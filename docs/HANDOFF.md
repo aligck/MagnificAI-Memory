@@ -1,3 +1,5 @@
+> **Güncel durum:** Bu belge beta.9 dönemi devrinin tarihsel kaydıdır ve 27 Eylül 2026 sonrası çalışmayı yansıtmaz (beta.10–beta.17, araç taraması, düzeltilen kusurlar). Güncel sürüm, doğrulanmış kapsam ve açık işler için yalnızca `docs/STATUS.md`, `CHANGELOG.md` ve `README.md` esas alınır.
+
 > Depoya taşıma notu: Bu belge önceki çalışmanın ayrıntılı devir kaydından uyarlanmıştır; tarihsel kayıttır. Güncel dizin, sürüm ve doğrulanmış kapsam için README.md ve STATUS.md esas alınır. Devir sırasında src/ beta.9, releases/ beta.8 idi; devralınan beta.9 taslağı hiç canlı kurulmadı ve beta.10 olarak düzeltilip doğrulandı (bkz. STATUS.md). Aşağıda work/ veya outputs/ adıyla geçen eski ham kayıtlar, bu yerel checkout'ta private/original-handoff/ altındadır; GitHub'da bulunmaz. Kurulum sunucusu artık src/ dosyasını doğrudan sunar; beta.8 arşivinin üzerine kopyalama gerekmez. Ayrı ZIP talimatları ilk taşınabilir devir paketinin tarihçesidir, depoyu clone ederek devam edilebilir.
 # Magnific ayar hafızası — DeepSeek için ayrıntılı devir belgesi
 
