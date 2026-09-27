@@ -2,8 +2,8 @@
 
 Önce `docs/STATUS.md`, ardından `docs/HANDOFF.md` okuyun. Kullanıcı çalışma kapsamını genişletmedikçe mevcut eksikleri tamamlayın; projeye yeni üretim özellikleri eklemeyin.
 
-- Güncel kaynak `src/magnific-memory.user.js`, son kurulu sürüm arşivi `releases/magnific-memory-beta.17.user.js`.
-- Beta.17 final değildir; doğrulanmış ve açık kapsam `docs/STATUS.md` içindedir. Yerel testlerin geçmesi canlı kapsamın tamamlandığı anlamına gelmez.
+- Güncel kaynak `src/magnific-memory.user.js`, final sürüm `releases/magnific-memory-3.1.0.user.js`.
+- Doğrulanmış ve açık kapsam `docs/STATUS.md` içindedir; yeni çalışma yeni bir sürüm numarasıyla (3.1.x+) yapılmalıdır. Yerel testlerin geçmesi canlı kapsamın tamamlandığı anlamına gelmez.
 - Kayıt dışlama kuralları değişirse `cleanup()` içindeki `revisionOfRules` değerini artırın; eski kayıtlar bir kez temizlenir.
 - Ortak alan tanıma, model başına ayrı değerler. Model adına bağlı alan allowlist'i eklemeyin.
 - Prompt, negative prompt, talimat, script/metin içeriği, referanslar, dosyalar ve oturum bilgilerini depolamayın.

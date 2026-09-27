@@ -1,5 +1,10 @@
 # Sürüm geçmişi
 
+## 3.1.0 — ilk final sürüm
+
+- Davranış 3.0.0-beta.17 ile aynıdır; yalnızca sürüm numarası değişti. 3.0.0 yerine 3.1.0 seçildi: Tampermonkey'in sürüm karşılaştırması `3.0.0` ile `3.0.0-beta.17` arasında güvenilir değil, 3.1.0 her ortamda daha yeni sayılır. Mevcut kurulumun üzerine güncelleme olarak kurulur; `@name`/`@namespace` değişmedi, kayıtlar korunur.
+- Kapsam, doğrulama kanıtları ve bilinen sınırlar: `docs/STATUS.md`.
+
 ## 3.0.0-beta.17 — Clip Editor: varlıktan bağımsız bağlam ve dıştaki Modify çubuğu
 
 - Canlı bulgu: bir videoyu Modify'da açmak `/app/video-clip-editor/:creationId?` rotasına götürüyor; bağlam videonun kimliğini içerdiği için her video ayrı kayıt alıyordu. Rota, uygulamanın kendi router kaydındaki dinamik parçalar (`:param`) atılarak normalize edilir (`/app/video-clip-editor`); parametresiz rotalar değişmez, eski kayıtlar korunur.

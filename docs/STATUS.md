@@ -1,10 +1,17 @@
 # Güncel durum
 
+## Final özeti — 3.1.0 (27 Eylül 2026)
+
+`releases/magnific-memory-3.1.0.user.js` final sürümdür (davranışı beta.17 ile aynı). Chrome'da gerçek Tampermonkey ile canlı doğrulanan araçlar: Image Generator (çoklu model dahil değil: bu yayında Image formunda yok), Video Generator (çoklu model, multi-shot), Image Editor, Editor Adjust (flip/intensity), Image Upscaler (6 mod), Relight, Cinematic Shot, Skin Enhancer, Video Upscaler, Modify Video (standalone ve Clip Editor), Music, Voice, Audio, Sound FX, Voice Changer; generic yolla yakalanan: Variations, Change Camera, Mockup, Image to 3D, Video Relight, Video Dubbing, hız rampası ses/smoothness.
+
+Bilinen sınırlar: Adjust LUT seçimi (seçici bu yayında görünmüyor), Video Resizer oranı (dışa açık kaynak yok), girdi isteyen araçlar (Speak, Remove Background, Image to 360, Face Swap), plan kısıtlı Character Generator; Designer/3D Scenes/Spaces bilerek kapsam dışı. Firefox kurulumu kullanıcı tarafından yapılacak, doğrulanmadı. Betik Magnific'in minify edilmiş iç dışa aktarımlarına (`sp`, `Rf`, `$`, `Os`, araç modüllerinin `t/i/n/m`) dayanır; site yayını değişirse güncelleme gerekebilir.
+
+
 Başlangıç tarihi: 27 Eylül 2026. Proje DeepSeek'e devir için mevcut çalışmadan taşındı. 27 Eylül 2026'da Video Upscaler ve Modify Video adapterleri gerçek Magnific yayınında doğrulandı; ayrıntı ve sınırlar aşağıdadır.
 
 ## Sürümler
 
-- `src/magnific-memory.user.js`: `3.0.0-beta.17` geliştirme kaynağı (altıncı oturum: beta.12 içerik/katalog sızıntıları, çoklu model bağlamı, multi-shot modu, tek seferlik kayıt temizliği; beta.13 görsel formu kimliği; beta.14–15 model algılaması; beta.16 bağlama bağlı model geçişi koruması; beta.17 Clip Editor rota normalizasyonu ve dış Modify çubuğu). Arşivi `releases/magnific-memory-beta.17.user.js`; ara sürümler 13–15 ayrıca arşivlenmedi.
+- `src/magnific-memory.user.js`: `3.1.0` final kaynak (beta.17 ile aynı davranış; altıncı oturum: beta.12 içerik/katalog sızıntıları, çoklu model bağlamı, multi-shot modu, tek seferlik kayıt temizliği; beta.13 görsel formu kimliği; beta.14–15 model algılaması; beta.16 bağlama bağlı model geçişi koruması; beta.17 Clip Editor rota normalizasyonu ve dış Modify çubuğu). Final dosya `releases/magnific-memory-3.1.0.user.js`, beta.17 arşivi ayrıca duruyor; ara sürümler 13–15 ayrıca arşivlenmedi.
 - `releases/magnific-memory-beta.12.user.js`: beta.12 arşivi.
 - `releases/magnific-memory-beta.11.user.js`: beta.11 arşivi (flip canvas yarışı düzeltmesi).
 - `releases/magnific-memory-beta.8.user.js`: kullanıcının Chrome'unda kurulu olan beta.8'in değiştirilmemiş arşivi. Yerel test ve kurulu script sürümü ayrı şeylerdir.
@@ -232,10 +239,10 @@ Bu turda eklenen/genişletilen yerel kapsam:
 - [x] Image Upscaler bütün Creative/Precision modelleri ve bağlam ayrımı. (altıncı oturum: 6 mod envanteri; Creative ↔ Precision v1 A → B → A ve reload canlı geçti; diğer 4 mod aynı bağlam mekanizmasıyla, tek tek canlı denenmedi)
 - [x] Image Generator ilk modellerin eksik kapalı menüleri ve çoklu model modu. (altıncı oturum: 50 modelin girdi matrisi `private/original-handoff/image-generator-inputs-2026-09-27.json`; bu yayında Image formunda `modelIds` yok, çoklu model Video Generator'da — beta.12 ile ayrı bağlam)
 - [x] Kalan image/video/audio/3D/design araçlarının koşullu seçenekleri. (altıncı oturum: image/audio araçları, Video Relight/Dubbing/Face Swap tarandı, 4 kusur düzeltildi — yukarıdaki tablo; Design/3D/Spaces proje oluşturduğu için gezilmedi, Character Generator plan kısıtlı)
-- [ ] Firefox gerçek kurulum uyumluluğu.
+- [ ] Firefox gerçek kurulum uyumluluğu. (kullanıcı 3.1.0'ı Firefox'a kuracak; doğrulama sonrası buraya yazılmalı)
 - [x] v1 kayıt migration; beta.8 yanlış help-context kayıtları için güvenli geçiş değerlendirmesi. (altıncı oturum, karar: **uygulanmadı**. v1 kayıtları model *görünen adıyla* ve DOM menü özetleriyle (`menus[].summary`, `fields[].ref`) tutuluyor; v3 ise gerçek `modelId` ve form alanı kullanıyor. Tek güvenli eşleme v2'nin `legacy()` fonksiyonundaki Image/Video metin ayrıştırmasıydı ve v3 zaten v2 kayıtlarını okuyor. v3 her modeli ilk ziyarette mevcut değerlerle kaydettiği ve kullanıcı v3'ü uzun süredir kullandığı için v1 kaydının hâlâ etkili olabileceği model sayısı küçük; ad → kimlik eşlemesini tahmine dayalı yazmak devir kuralına aykırı. Beta.8'in help-context'li Video Upscaler kayıtları yalnızca kullanılmayan eski anahtarlar; v3 bağlamı artık mod değeri, silinmeleri gerekmiyor.)
 - [x] Eski GPT/Seedream test tercihlerini kullanıcı sonradan değiştirmediyse geri alma. (altıncı oturum: değerler test bırakıldığı gibiydi; GPT 2.5 `16:9/2k/medium`, Seedream 5 Pro `4:3/2k/high` olarak geri alındı, seçili model MAI Image 2.5'e döndü)
-- [ ] Kapsam raporu, son sürüm/kurulum açıklamaları ve final dosya.
+- [x] Kapsam raporu, son sürüm/kurulum açıklamaları ve final dosya. (3.1.0: README kurulum bölümü, STATUS final özeti)
 
 ## Keşif kayıtlarının sınırları
 
