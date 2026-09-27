@@ -61,3 +61,4 @@ Başlangıç tarihi: 27 Eylül 2026. Proje DeepSeek'e devir için mevcut çalı�
 - Native Modify, LUT/flip ve gerçek çoklu model/sahne senaryolarının eksik canlı testleri devam ediyor.
 - `private/` ve `node_modules/` Git dışında; hesap kanıtları GitHub'a gönderilmiyor.
 - CI, push ve pull request üzerinde aynı yerel test takımını çalıştıracak şekilde eklendi.
+- İlk Linux CI çalışması generic fixture'ın sabit süreli beklemesinde erken assertion yaptı. Test, gerçek binding `ready` durumunu sınırlı süre içinde bekleyecek şekilde düzeltildi; userscript davranışı değiştirilmedi.

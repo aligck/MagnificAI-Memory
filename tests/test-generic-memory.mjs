@@ -54,7 +54,20 @@ if(!editorMode)document.querySelector('#app').setAttribute('data-cy','full-canva
 for(const el of document.querySelectorAll('*'))delete el.__vueParentComponent;
 let source=fs.readFileSync(new URL('../src/magnific-memory.user.js',import.meta.url),'utf8').replace('await import(mainUrl)','window.__testCore').replaceAll("await import(await asset('useImageGeneratorForm'))",'window.__testNativeMod').replace("await import(await asset(voice?'useVoiceoverForm':music?'useMusicGeneratorForm':'useAudioGeneratorForm'))",'window.__testExtraMod').replace('await import(new URL(dependency,componentUrl).href)','window.__testUpscaleMod');
 dom.window.eval(source);
-const settle=async()=>{for(let i=0;i<12;i++){await nextTick();await new Promise(r=>setTimeout(r,5));}};
+const settle=async()=>{
+  for(let i=0;i<12;i++){await nextTick();await new Promise(r=>setTimeout(r,5));}
+  // Readiness can be published before the four-tick restore finishes. Wait for
+  // the actual bindings, rather than relying on Windows timer granularity.
+  const deadline=Date.now()+3000;
+  while(Date.now()<deadline){
+    const panel=document.querySelector(panelSelector);
+    const inventory=JSON.parse(panel?.getAttribute('data-magnific-memory-inventory')||'[]');
+    const ready=panel?.getAttribute('data-magnific-memory-ready')==='generic-v3';
+    if(ready&&(nativeMode?panel.hasAttribute('data-magnific-memory-state-inventory'):inventory.length===6&&inventory.every(item=>item.ready)))return;
+    await nextTick();await new Promise(r=>setTimeout(r,10));
+  }
+  assert.fail('Timed out waiting for userscript bindings to finish restoration');
+};
 await settle();
 assert.equal(document.querySelector(panelSelector).getAttribute('data-magnific-memory-ready'),'generic-v3');
 assert.equal(document.querySelector(panelSelector).getAttribute('data-magnific-memory-controls'),nativeMode?'0':'6');
