@@ -1,0 +1,1313 @@
+{
+  "date": "2026-09-27",
+  "note": "Observed model catalogs, not a claim of complete settings or live verification.",
+  "tools": [
+    {
+      "cy": "tool-tool-image-generator-button",
+      "id": null,
+      "label": null,
+      "text": "Image GeneratorCreate images from text prompts",
+      "disabled": null
+    },
+    {
+      "cy": "tool-tool-image-editor-button",
+      "id": null,
+      "label": null,
+      "text": "Image EditorEdit and modify existing images",
+      "disabled": null
+    },
+    {
+      "cy": "tool-tool-upscaler-button",
+      "id": null,
+      "label": null,
+      "text": "Image UpscalerEnhance resolution and detail",
+      "disabled": null
+    },
+    {
+      "cy": "tool-tool-cinematographer-button",
+      "id": null,
+      "label": null,
+      "text": "Cinematic ShotGenerate cinematic compositions",
+      "disabled": null
+    },
+    {
+      "cy": "tool-tool-variations-button",
+      "id": null,
+      "label": null,
+      "text": "VariationsCreate variations of an image",
+      "disabled": null
+    },
+    {
+      "cy": "tool-tool-skin-enhancer-button",
+      "id": null,
+      "label": null,
+      "text": "Skin EnhancerRetouch and enhance skin details",
+      "disabled": null
+    },
+    {
+      "cy": "tool-tool-change-camera-button",
+      "id": null,
+      "label": null,
+      "text": "Change CameraAdjust camera angle and lens",
+      "disabled": null
+    },
+    {
+      "cy": "tool-tool-mockup-button",
+      "id": null,
+      "label": null,
+      "text": "Mockup GeneratorPlace designs on product mockups",
+      "disabled": null
+    },
+    {
+      "cy": "tool-tool-remove-background-button",
+      "id": null,
+      "label": null,
+      "text": "Remove BackgroundIsolate subjects from backgrounds",
+      "disabled": null
+    },
+    {
+      "cy": "tool-tool-relight-button",
+      "id": null,
+      "label": null,
+      "text": "RelightChange lighting and atmosphere",
+      "disabled": null
+    },
+    {
+      "cy": "tool-tool-video-generator-button",
+      "id": null,
+      "label": null,
+      "text": "Video GeneratorCreate videos from text prompts",
+      "disabled": null
+    },
+    {
+      "cy": "tool-tool-video-clip-editor-button",
+      "id": null,
+      "label": null,
+      "text": "Clip EditorTrim, cut, and edit video clips",
+      "disabled": null
+    },
+    {
+      "cy": "tool-tool-video-upscaler-button",
+      "id": null,
+      "label": null,
+      "text": "Video UpscalerEnhance video resolution",
+      "disabled": null
+    },
+    {
+      "cy": "tool-tool-video-modify-button",
+      "id": null,
+      "label": null,
+      "text": "Modify videoModify your video with AI",
+      "disabled": null
+    },
+    {
+      "cy": "tool-tool-video-project-button",
+      "id": null,
+      "label": null,
+      "text": "Video Project EditorExperimentalEdit multi-clip video projects",
+      "disabled": null
+    },
+    {
+      "cy": "tool-tool-video-speak-button",
+      "id": null,
+      "label": null,
+      "text": "SpeakGenerate realistic talking videos",
+      "disabled": null
+    },
+    {
+      "cy": "tool-tool-video-relight-button",
+      "id": null,
+      "label": null,
+      "text": "Video RelightChange lighting and atmosphere of videos",
+      "disabled": null
+    },
+    {
+      "cy": "tool-tool-voiceover-button",
+      "id": null,
+      "label": null,
+      "text": "Voice GeneratorGenerate realistic voiceovers",
+      "disabled": null
+    },
+    {
+      "cy": "tool-tool-music-button",
+      "id": null,
+      "label": null,
+      "text": "Music GeneratorCreate music from text prompts",
+      "disabled": null
+    },
+    {
+      "cy": "tool-tool-audio-generator-button",
+      "id": null,
+      "label": null,
+      "text": "Audio GeneratorNewCreate audio from text prompts",
+      "disabled": null
+    },
+    {
+      "cy": "tool-tool-sound-fx-button",
+      "id": null,
+      "label": null,
+      "text": "Sound Effect GeneratorCreate custom sound effects",
+      "disabled": null
+    },
+    {
+      "cy": "tool-tool-voice-cloning-button",
+      "id": null,
+      "label": null,
+      "text": "Voice CloningClone any voice with AI",
+      "disabled": null
+    },
+    {
+      "cy": "tool-tool-voice-changer-button",
+      "id": null,
+      "label": null,
+      "text": "Voice ChangerTransform voice characteristics",
+      "disabled": null
+    },
+    {
+      "cy": "tool-tool-audio-isolation-button",
+      "id": null,
+      "label": null,
+      "text": "Audio IsolationRemove background noise from audio",
+      "disabled": null
+    },
+    {
+      "cy": "tool-spaces-create-button",
+      "id": null,
+      "label": null,
+      "text": "SpacesBuild workflows and collaborate",
+      "disabled": null
+    },
+    {
+      "cy": "tool-spaces-templates-button",
+      "id": null,
+      "label": null,
+      "text": "Spaces templatesReady-made workflows",
+      "disabled": null
+    },
+    {
+      "cy": "tool-spaces-apps-button",
+      "id": null,
+      "label": null,
+      "text": "Build a flowConvert workflows to flow",
+      "disabled": null
+    },
+    {
+      "cy": "tool-tool-designer-button",
+      "id": null,
+      "label": null,
+      "text": "DesignDesign and create with templates",
+      "disabled": null
+    },
+    {
+      "cy": "tool-design-templates-button",
+      "id": null,
+      "label": null,
+      "text": "Design templatesBrowse ready-made design templates",
+      "disabled": null
+    },
+    {
+      "cy": "tool-tool-design-from-image-qwen-button",
+      "id": null,
+      "label": null,
+      "text": "Auto layersTurn any image into an editable design.",
+      "disabled": null
+    },
+    {
+      "cy": "tool-tool-design-editor-legacy-button",
+      "id": null,
+      "label": null,
+      "text": "Design EditorLegacyDesign with full control",
+      "disabled": null
+    },
+    {
+      "cy": "tool-tool-virtual-scene-generator-button",
+      "id": null,
+      "label": null,
+      "text": "3D ScenesNewCreate 3D environments and scenes",
+      "disabled": null
+    },
+    {
+      "cy": "tool-tool-image-to-3d-button",
+      "id": null,
+      "label": null,
+      "text": "3D GeneratorGenerate 3D objects and characters",
+      "disabled": null
+    },
+    {
+      "cy": "tool-tool-image-to-360-button",
+      "id": null,
+      "label": null,
+      "text": "360° GeneratorNewGenerate 360° panoramic images",
+      "disabled": null
+    },
+    {
+      "cy": "tool-tool-mcp-button",
+      "id": null,
+      "label": null,
+      "text": "MCPNewCreate from Claude, ChatGPT and more",
+      "disabled": null
+    },
+    {
+      "cy": "tool-tool-plugins-button",
+      "id": null,
+      "label": null,
+      "text": "PluginsNewPhotoshop, Figma, Premiere and more",
+      "disabled": null
+    },
+    {
+      "cy": "tool-tool-api-button",
+      "id": null,
+      "label": null,
+      "text": "APIIntegrate Magnific into your own products",
+      "disabled": null
+    },
+    {
+      "cy": "tool-tool-desktop-button",
+      "id": null,
+      "label": null,
+      "text": "Desktop AppNewNative, fast, always open",
+      "disabled": null
+    },
+    {
+      "cy": "tool-tool-mobile-button",
+      "id": null,
+      "label": null,
+      "text": "Mobile AppCreate and review on the move",
+      "disabled": null
+    }
+  ],
+  "image-models": [
+    {
+      "cy": "tti-model-selector-popover-model-auto",
+      "id": null,
+      "label": null,
+      "text": "Auto\nRefs\n~5s",
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-model-cinematic",
+      "id": null,
+      "label": null,
+      "text": "Cinematic\nRefs\n~1m 35s\n2K-4K",
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-model-imagen-nano-banana-2-flash",
+      "id": null,
+      "label": null,
+      "text": "Google Nano Banana 2\nNew\nRefs\n~37s\n2K-4K",
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-model-seedream-5-pro",
+      "id": null,
+      "label": null,
+      "text": "Seedream 5 Pro\nNew\nRefs\n~58s\n2K",
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-model-gpt-2-mini",
+      "id": null,
+      "label": null,
+      "text": "GPT 2.5\nNew\nRefs\n~30s\n2K-4K\n15 - 1000",
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-provider-model-imagen-nano-banana-2-flash",
+      "id": null,
+      "label": null,
+      "text": "Google Nano Banana 2\nNew\nRefs\n~37s\n2K-4K",
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-provider-model-imagen-nano-banana-2-lite",
+      "id": null,
+      "label": null,
+      "text": "Google Nano Banana 2 Lite\nNew\nRefs\n~8s",
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-provider-model-imagen-nano-banana",
+      "id": null,
+      "label": null,
+      "text": "Google Nano Banana\nRefs\n~13s",
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-provider-model-imagen-nano-banana-2",
+      "id": null,
+      "label": null,
+      "text": "Google Nano Banana Pro\nRefs\n~41s\n2K-4K",
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-provider-model-gpt-2-mini",
+      "id": null,
+      "label": null,
+      "text": "GPT 2.5\nNew\nRefs\n~30s\n2K-4K\n15 - 1000",
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-provider-model-gpt-medium",
+      "id": null,
+      "label": null,
+      "text": "GPT\nRefs\n~36s",
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-provider-model-gpt-high",
+      "id": null,
+      "label": null,
+      "text": "GPT 1 - HQ\nRefs\n~1m 15s",
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-provider-model-gpt-1-5-medium",
+      "id": null,
+      "label": null,
+      "text": "GPT 1.5\nRefs\n~19s",
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-provider-model-gpt-1-5-high",
+      "id": null,
+      "label": null,
+      "text": "GPT 1.5 - High\nRefs\n~1m 3s\n500",
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-provider-model-gpt-2",
+      "id": null,
+      "label": null,
+      "text": "GPT 2\nRefs\n~48s\n2K-4K\n15 - 1000",
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-provider-model-seedream-5-lite",
+      "id": null,
+      "label": null,
+      "text": "Seedream 5 Lite\nNew\nRefs\n~59s\n2K-4K",
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-provider-model-seedream-5-pro",
+      "id": null,
+      "label": null,
+      "text": "Seedream 5 Pro\nNew\nRefs\n~58s\n2K",
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-provider-model-seedream-5-flash",
+      "id": null,
+      "label": null,
+      "text": "Seedream 5 Flash\nNew\nRefs\n~27s\n2K\n35",
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-provider-model-seedream-4",
+      "id": null,
+      "label": null,
+      "text": "Seedream 4\nRefs\n~26s",
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-provider-model-seedream-4-4k",
+      "id": null,
+      "label": null,
+      "text": "Seedream 4 4K\nRefs\n~42s",
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-provider-model-seedream-4-5",
+      "id": null,
+      "label": null,
+      "text": "Seedream 4.5\nRefs\n~54s\n2K-4K",
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-provider-model-flux-2-max",
+      "id": null,
+      "label": null,
+      "text": "Flux.2 Max\nRefs\n~36s\n2K",
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-provider-model-flux-2",
+      "id": null,
+      "label": null,
+      "text": "Flux.2 Pro\nRefs\n~17s\n2K",
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-provider-model-flux-2-flex",
+      "id": null,
+      "label": null,
+      "text": "Flux.2 Flex\nRefs\n~27s\n2K",
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-provider-model-flux-kontext-high",
+      "id": null,
+      "label": null,
+      "text": "Flux.1 Kontext Max\nRefs\n~10s",
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-provider-model-flux-2-klein",
+      "id": null,
+      "label": null,
+      "text": "Flux.2 Klein\nRefs\n~6s\n2K",
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-provider-model-flux-kontext",
+      "id": null,
+      "label": null,
+      "text": "Flux.1 Kontext Pro\nRefs\n~9s",
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-provider-model-flux-dev",
+      "id": null,
+      "label": null,
+      "text": "Flux.1\n~8s",
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-provider-model-flux-pro-plus",
+      "id": null,
+      "label": null,
+      "text": "Flux.1.1\n~6s",
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-provider-model-flux-realism",
+      "id": null,
+      "label": null,
+      "text": "Flux.1 Realism\n~9s",
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-provider-model-flux",
+      "id": null,
+      "label": null,
+      "text": "Flux.1 Fast\n~5s",
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-provider-model-mystic-2-5",
+      "id": null,
+      "label": null,
+      "text": "Mystic 2.5\nTraining\n~28s",
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-provider-model-mystic-2-5-flexible",
+      "id": null,
+      "label": null,
+      "text": "Mystic 2.5 Flexible\n~19s",
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-provider-model-mystic-2-5-fluid",
+      "id": null,
+      "label": null,
+      "text": "Mystic 2.5 Fluid\n~29s",
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-provider-model-mystic",
+      "id": null,
+      "label": null,
+      "text": "Mystic 1.0\nTraining\n~50s",
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-provider-model-ideogram-4",
+      "id": null,
+      "label": null,
+      "text": "Ideogram 4\nNew\nNegative\n~23s\n120 - 200",
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-provider-model-p-image-ideogram",
+      "id": null,
+      "label": null,
+      "text": "P-Image Ideogram\nNew\n~11s\n2K\n5 - 44",
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-provider-model-ideogram",
+      "id": null,
+      "label": null,
+      "text": "Ideogram\nNegative\n~14s",
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-provider-model-luma-uni-1",
+      "id": null,
+      "label": null,
+      "text": "Luma Uni-1.1\nNew\nRefs\n~2m 55s\n140 - 430",
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-provider-model-runway-gen4",
+      "id": null,
+      "label": null,
+      "text": "Runway\nDeprecated\nRefs\n~16s",
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-provider-model-fast",
+      "id": null,
+      "label": null,
+      "text": "Classic Fast\nNegative\n~2s",
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-provider-model-classic",
+      "id": null,
+      "label": null,
+      "text": "Classic\nNegative\n~4s",
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-provider-model-z-image",
+      "id": null,
+      "label": null,
+      "text": "Z-Image\n~6s",
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-provider-model-qwen-image-3-0-pro",
+      "id": null,
+      "label": null,
+      "text": "Qwen Image 3.0 Pro\nNew\nRefs\n~58s\n2K\n80 - 150",
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-provider-model-qwen-image-3-0",
+      "id": null,
+      "label": null,
+      "text": "Qwen Image 3.0\nNew\nRefs\n~22s\n60",
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-provider-model-qwen",
+      "id": null,
+      "label": null,
+      "text": "Qwen\nRefs\n~16s",
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-provider-model-grok-imagine-2",
+      "id": null,
+      "label": null,
+      "text": "Grok Imagine 2.0\nNew\nRefs\n~1m 17s",
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-provider-model-grok",
+      "id": null,
+      "label": null,
+      "text": "Grok\nRefs\n~12s",
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-provider-model-recraft-v4",
+      "id": null,
+      "label": null,
+      "text": "Recraft V4\nNew\n~17s",
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-provider-model-recraft-v4-pro",
+      "id": null,
+      "label": null,
+      "text": "Recraft V4 Pro\nNew\n~24s\n175",
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-provider-model-recraft-v4-1",
+      "id": null,
+      "label": null,
+      "text": "Recraft V4.1\nNew\n~17s",
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-provider-model-krea-2",
+      "id": null,
+      "label": null,
+      "text": "Krea 2\nNew\nRefs\n~32s\n80 - 160",
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-provider-model-mai-image-2-5",
+      "id": null,
+      "label": null,
+      "text": "MAI Image 2.5\nNew\nRefs\n~58s\n120 - 200",
+      "disabled": false
+    }
+  ],
+  "editor-models": [
+    {
+      "cy": "tti-model-selector-popover-search-model-auto",
+      "id": null,
+      "label": null,
+      "text": null,
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-search-model-imagen-nano-banana-2-flash",
+      "id": null,
+      "label": null,
+      "text": null,
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-search-model-imagen-nano-banana",
+      "id": null,
+      "label": null,
+      "text": null,
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-search-model-imagen-nano-banana-2",
+      "id": null,
+      "label": null,
+      "text": null,
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-search-model-imagen-nano-banana-2-lite",
+      "id": null,
+      "label": null,
+      "text": null,
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-search-model-gpt-2-mini",
+      "id": null,
+      "label": null,
+      "text": null,
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-search-model-gpt-medium",
+      "id": null,
+      "label": null,
+      "text": null,
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-search-model-gpt-high",
+      "id": null,
+      "label": null,
+      "text": null,
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-search-model-gpt-1-5-medium",
+      "id": null,
+      "label": null,
+      "text": null,
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-search-model-gpt-1-5-high",
+      "id": null,
+      "label": null,
+      "text": null,
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-search-model-gpt-2",
+      "id": null,
+      "label": null,
+      "text": null,
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-search-model-seedream-5-pro",
+      "id": null,
+      "label": null,
+      "text": null,
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-search-model-seedream-4",
+      "id": null,
+      "label": null,
+      "text": null,
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-search-model-seedream-4-4k",
+      "id": null,
+      "label": null,
+      "text": null,
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-search-model-seedream-4-5",
+      "id": null,
+      "label": null,
+      "text": null,
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-search-model-seedream-5-lite",
+      "id": null,
+      "label": null,
+      "text": null,
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-search-model-seedream-5-flash",
+      "id": null,
+      "label": null,
+      "text": null,
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-search-model-flux-2-max",
+      "id": null,
+      "label": null,
+      "text": null,
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-search-model-flux-2",
+      "id": null,
+      "label": null,
+      "text": null,
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-search-model-flux-2-flex",
+      "id": null,
+      "label": null,
+      "text": null,
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-search-model-flux-kontext-high",
+      "id": null,
+      "label": null,
+      "text": null,
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-search-model-flux-2-klein",
+      "id": null,
+      "label": null,
+      "text": null,
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-search-model-flux-kontext",
+      "id": null,
+      "label": null,
+      "text": null,
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-search-model-luma-uni-1",
+      "id": null,
+      "label": null,
+      "text": null,
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-search-model-runway-gen4",
+      "id": null,
+      "label": null,
+      "text": null,
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-search-model-qwen-image-3-0-pro",
+      "id": null,
+      "label": null,
+      "text": null,
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-search-model-qwen-image-3-0",
+      "id": null,
+      "label": null,
+      "text": null,
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-search-model-qwen",
+      "id": null,
+      "label": null,
+      "text": null,
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-search-model-grok-imagine-2",
+      "id": null,
+      "label": null,
+      "text": null,
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-search-model-grok",
+      "id": null,
+      "label": null,
+      "text": null,
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-search-model-krea-2",
+      "id": null,
+      "label": null,
+      "text": null,
+      "disabled": false
+    },
+    {
+      "cy": "tti-model-selector-popover-search-model-mai-image-2-5",
+      "id": null,
+      "label": null,
+      "text": null,
+      "disabled": false
+    }
+  ],
+  "video-models": [
+    {
+      "cy": null,
+      "id": "auto-mode",
+      "label": "Auto",
+      "text": null,
+      "disabled": null
+    },
+    {
+      "cy": null,
+      "id": "wan-3-0",
+      "label": "Wan 3.0",
+      "text": null,
+      "disabled": null
+    },
+    {
+      "cy": null,
+      "id": "wan-3-0-prime",
+      "label": "Wan 3.0 Prime",
+      "text": null,
+      "disabled": null
+    },
+    {
+      "cy": null,
+      "id": "happy-horse-1-1",
+      "label": "Happy Horse 1.1",
+      "text": null,
+      "disabled": null
+    },
+    {
+      "cy": null,
+      "id": "happy-horse-1-edit",
+      "label": "Happy Horse Edit",
+      "text": null,
+      "disabled": null
+    },
+    {
+      "cy": null,
+      "id": "wan-2-7",
+      "label": "Wan 2.7",
+      "text": null,
+      "disabled": null
+    },
+    {
+      "cy": null,
+      "id": "wan-2-6",
+      "label": "Wan 2.6",
+      "text": null,
+      "disabled": null
+    },
+    {
+      "cy": null,
+      "id": "happy-horse-1",
+      "label": "Happy Horse",
+      "text": null,
+      "disabled": null
+    },
+    {
+      "cy": null,
+      "id": "wan-2-5",
+      "label": "Wan 2.5",
+      "text": null,
+      "disabled": null
+    },
+    {
+      "cy": null,
+      "id": "wan-2-2",
+      "label": "Wan 2.2",
+      "text": null,
+      "disabled": null
+    },
+    {
+      "cy": null,
+      "id": "wan-2-2-animate",
+      "label": "Wan 2.2 Animate Move",
+      "text": null,
+      "disabled": null
+    },
+    {
+      "cy": null,
+      "id": "minimax-video-3_0-max-turbo",
+      "label": "MiniMax H3 Max Turbo",
+      "text": null,
+      "disabled": null
+    },
+    {
+      "cy": null,
+      "id": "minimax-video-3_0-max",
+      "label": "MiniMax H3 Max",
+      "text": null,
+      "disabled": null
+    },
+    {
+      "cy": null,
+      "id": "minimax-video-3_0",
+      "label": "MiniMax H3",
+      "text": null,
+      "disabled": null
+    },
+    {
+      "cy": null,
+      "id": "minimax-video-2_3",
+      "label": "MiniMax Hailuo 2.3",
+      "text": null,
+      "disabled": null
+    },
+    {
+      "cy": null,
+      "id": "minimax-video-2_3-fast",
+      "label": "MiniMax Hailuo 2.3 Fast",
+      "text": null,
+      "disabled": null
+    },
+    {
+      "cy": null,
+      "id": "minimax-video-02",
+      "label": "MiniMax Hailuo 02",
+      "text": null,
+      "disabled": null
+    },
+    {
+      "cy": null,
+      "id": "minimax-video-01-live2d",
+      "label": "MiniMax Live Illustrations",
+      "text": null,
+      "disabled": null
+    },
+    {
+      "cy": null,
+      "id": "bytedance-seedance-pro-2.5",
+      "label": "Seedance 2.5",
+      "text": null,
+      "disabled": null
+    },
+    {
+      "cy": null,
+      "id": "bytedance-seedance-pro-2.0",
+      "label": "Seedance 2.0",
+      "text": null,
+      "disabled": null
+    },
+    {
+      "cy": null,
+      "id": "bytedance-seedance-fast-2.0",
+      "label": "Seedance 2.0 Fast",
+      "text": null,
+      "disabled": null
+    },
+    {
+      "cy": null,
+      "id": "bytedance-seedance-mini-2.0",
+      "label": "Seedance 2.0 Mini",
+      "text": null,
+      "disabled": null
+    },
+    {
+      "cy": null,
+      "id": "bytedance-seedance-pro-1.5",
+      "label": "Seedance 1.5 Pro",
+      "text": null,
+      "disabled": null
+    },
+    {
+      "cy": null,
+      "id": "bytedance-omnihuman-lipsync",
+      "label": "Omni Human 1.5",
+      "text": null,
+      "disabled": null
+    },
+    {
+      "cy": null,
+      "id": "kling-30",
+      "label": "Kling 3.0",
+      "text": null,
+      "disabled": null
+    },
+    {
+      "cy": null,
+      "id": "kling-omni3",
+      "label": "Kling 3.0 Omni",
+      "text": null,
+      "disabled": null
+    },
+    {
+      "cy": null,
+      "id": "kling-30-turbo",
+      "label": "Kling 3.0 Turbo",
+      "text": null,
+      "disabled": null
+    },
+    {
+      "cy": null,
+      "id": "kling-26",
+      "label": "Kling 2.6",
+      "text": null,
+      "disabled": null
+    },
+    {
+      "cy": null,
+      "id": "kling-motion-control-30",
+      "label": "Kling 3.0 Motion Control",
+      "text": null,
+      "disabled": null
+    },
+    {
+      "cy": null,
+      "id": "kling-motion-control",
+      "label": "Kling 2.6 Motion Control",
+      "text": null,
+      "disabled": null
+    },
+    {
+      "cy": null,
+      "id": "kling-omni1",
+      "label": "Kling O1",
+      "text": null,
+      "disabled": null
+    },
+    {
+      "cy": null,
+      "id": "kling-25",
+      "label": "Kling 2.5",
+      "text": null,
+      "disabled": null
+    },
+    {
+      "cy": null,
+      "id": "grok-imagine-video-1-5",
+      "label": "Grok Imagine 1.5",
+      "text": null,
+      "disabled": null
+    },
+    {
+      "cy": null,
+      "id": "grok-default",
+      "label": "Grok",
+      "text": null,
+      "disabled": null
+    },
+    {
+      "cy": null,
+      "id": "bfl-flux-3",
+      "label": "FLUX 3",
+      "text": null,
+      "disabled": null
+    },
+    {
+      "cy": null,
+      "id": "gemini-omni-1_1",
+      "label": "Gemini Omni 1.1",
+      "text": null,
+      "disabled": null
+    },
+    {
+      "cy": null,
+      "id": "google-veo3_1",
+      "label": "Google Veo 3.1",
+      "text": null,
+      "disabled": null
+    },
+    {
+      "cy": null,
+      "id": "google-veo3_1-fast",
+      "label": "Google Veo 3.1 Fast",
+      "text": null,
+      "disabled": null
+    },
+    {
+      "cy": null,
+      "id": "google-veo3_1-lite",
+      "label": "Google Veo 3.1 Lite",
+      "text": null,
+      "disabled": null
+    },
+    {
+      "cy": null,
+      "id": "runway-gen45",
+      "label": "Runway Gen-4.5",
+      "text": null,
+      "disabled": null
+    },
+    {
+      "cy": null,
+      "id": "runway-std",
+      "label": "Runway Gen 4",
+      "text": null,
+      "disabled": null
+    },
+    {
+      "cy": null,
+      "id": "runway-act-two",
+      "label": "Runway Act Two",
+      "text": null,
+      "disabled": null
+    },
+    {
+      "cy": null,
+      "id": "veed-fabric-1.0",
+      "label": "Veed Fabric 1.0",
+      "text": null,
+      "disabled": null
+    },
+    {
+      "cy": null,
+      "id": "veed-fabric-1.0-fast",
+      "label": "Veed Fabric 1.0 Fast",
+      "text": null,
+      "disabled": null
+    },
+    {
+      "cy": null,
+      "id": "veed-sync-2-v2v",
+      "label": "Veed Sync 2.0",
+      "text": null,
+      "disabled": null
+    },
+    {
+      "cy": null,
+      "id": "pixverse-6",
+      "label": "PixVerse 6",
+      "text": null,
+      "disabled": null
+    },
+    {
+      "cy": null,
+      "id": "pixverse-5-5",
+      "label": "PixVerse 5.5",
+      "text": null,
+      "disabled": null
+    }
+  ],
+  "voice-models": [
+    {
+      "cy": "voiceover-model-option-elevenlabs-v3-enhance",
+      "id": "elevenlabs-v3-enhance",
+      "label": "ElevenLabs v3",
+      "text": null,
+      "disabled": null
+    },
+    {
+      "cy": "voiceover-model-option-elevenlabs-v2",
+      "id": "elevenlabs-v2",
+      "label": "ElevenLabs v2",
+      "text": null,
+      "disabled": null
+    },
+    {
+      "cy": "voiceover-model-option-gemini-v2-5-pro",
+      "id": "gemini-v2-5-pro",
+      "label": "Gemini 2.5 Pro",
+      "text": null,
+      "disabled": null
+    },
+    {
+      "cy": "voiceover-model-option-gemini-v3-1-flash-tts",
+      "id": "gemini-v3-1-flash-tts",
+      "label": "Gemini 3.1 Flash TTS",
+      "text": null,
+      "disabled": null
+    },
+    {
+      "cy": "voiceover-model-option-bytedance-seed-audio-1-0",
+      "id": "bytedance-seed-audio-1-0",
+      "label": "Seed Audio 1.0",
+      "text": null,
+      "disabled": null
+    }
+  ],
+  "music-models": [
+    {
+      "cy": "music-model-option-elevenlabs-music-generation-v2",
+      "id": "elevenlabs-music-generation-v2",
+      "label": "ElevenLabs Music v2",
+      "text": null,
+      "disabled": null
+    },
+    {
+      "cy": "music-model-option-elevenlabs-music-generation",
+      "id": "elevenlabs-music-generation",
+      "label": "ElevenLabs Music v1",
+      "text": null,
+      "disabled": null
+    },
+    {
+      "cy": "music-model-option-lyria-3",
+      "id": "lyria-3",
+      "label": "Google Lyria 3",
+      "text": null,
+      "disabled": null
+    }
+  ],
+  "modify-models": [
+    {
+      "cy": "tti-model-selector-popover-model-video-modify-minimax-h3",
+      "id": null,
+      "label": null,
+      "text": "MiniMax H3up to 50% off",
+      "disabled": null
+    },
+    {
+      "cy": "tti-model-selector-popover-model-video-modify-gemini-omni-1_1",
+      "id": null,
+      "label": null,
+      "text": "Gemini Omni 1.1",
+      "disabled": null
+    },
+    {
+      "cy": "tti-model-selector-popover-model-video-modify-seedance2.5",
+      "id": null,
+      "label": null,
+      "text": "Seedance 2.5",
+      "disabled": null
+    },
+    {
+      "cy": "tti-model-selector-popover-model-video-modify-seedance2",
+      "id": null,
+      "label": null,
+      "text": "Seedance 2.0",
+      "disabled": null
+    },
+    {
+      "cy": "tti-model-selector-popover-model-video-modify-aleph2",
+      "id": null,
+      "label": null,
+      "text": "Runway Aleph 2",
+      "disabled": null
+    },
+    {
+      "cy": "tti-model-selector-popover-model-video-modify-grok",
+      "id": null,
+      "label": null,
+      "text": "Grok",
+      "disabled": null
+    }
+  ]
+}
