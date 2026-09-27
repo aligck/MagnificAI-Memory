@@ -6,8 +6,11 @@ Magnific araçlarının ayarlarını model başına hatırlayan Tampermonkey use
 
 | Dosya | Durum |
 |---|---|
-| [src/magnific-memory.user.js](src/magnific-memory.user.js) | `3.0.0-beta.9` geliştirme kaynağı; son eklemelerin canlı testleri eksik |
-| [releases/magnific-memory-beta.8.user.js](releases/magnific-memory-beta.8.user.js) | Son çalışma oturumunda Chrome'a yüklenmiş beta.8'in arşivi |
+| [src/magnific-memory.user.js](src/magnific-memory.user.js) | `3.0.0-beta.16` geliştirme kaynağı; Video Upscaler, Modify Video, Editor Adjust, Relight, Image Upscaler, Image/Video Generator (çoklu model, multi-shot), Cinematic Shot, Sound FX, Voice Changer, Skin Enhancer canlı doğrulandı; kalan araçlar için `docs/STATUS.md` |
+| [releases/magnific-memory-beta.16.user.js](releases/magnific-memory-beta.16.user.js) | 27 Eylül 2026'da Chrome'a yüklü beta.16'nın arşivi |
+| [releases/magnific-memory-beta.12.user.js](releases/magnific-memory-beta.12.user.js) | beta.12 arşivi |
+| [releases/magnific-memory-beta.11.user.js](releases/magnific-memory-beta.11.user.js) | beta.11 arşivi |
+| [releases/magnific-memory-beta.8.user.js](releases/magnific-memory-beta.8.user.js) | Öncesinde yüklü beta.8'in değiştirilmemiş arşivi |
 
 ## Takip ve devir
 
@@ -34,7 +37,7 @@ Testler gerçek Vue + jsdom ile çalışır; canlı Magnific testlerinin yerini 
 npm run serve:dev
 ```
 
-Ardından `http://127.0.0.1:43129/magnific-memory.user.js` adresini açın. Bu adres **beta.9 geliştirme dosyasını** sunar. Kurulumdan sonra sunucunun sürekli çalışması gerekmez. Yükleme, mevcut Magnific hafıza betiğinin üzerine güncelleme olarak yapılmalı; iki sürüm aynı anda etkin olmamalı.
+Ardından `http://127.0.0.1:43129/magnific-memory.user.js` adresini açın. Bu adres **güncel geliştirme dosyasını** (şu an beta.16) sunar. Kurulumdan sonra sunucunun sürekli çalışması gerekmez. Yükleme, mevcut Magnific hafıza betiğinin üzerine güncelleme olarak yapılmalı; iki sürüm aynı anda etkin olmamalı. Zaten kurulu sürümü güncellemek için Tampermonkey panosundaki "Güncellemeleri denetle" eylemi de bu adresi yeniden okur.
 
 ## Klasörler
 
@@ -43,7 +46,7 @@ src/          Güncel userscript
 tests/        Yerel testler
 tools/        Test ve kurulum yardımcıları
 docs/         Devir, durum ve teknik keşif kayıtları
-releases/     Son kurulu beta.8 arşivi
+releases/     Kurulu sürüm arşivleri
 legacy/       Eski kaynaklar; migration incelemesi için
 private/      Yalnızca yerel ham kayıtlar; Git dışında
 ```

@@ -17,11 +17,11 @@ const settle=async()=>{for(let i=0;i<20;i++){await nextTick();await new Promise(
 dom.window.eval(source);await settle();
 assert.equal(document.querySelector('[data-magnific-memory-context]').getAttribute('data-magnific-memory-context'),'/app/tools/video-upscaler::topaz::proteus');
 state.topazDetails=.75;state.multiShots[0].duration=8;await settle();
-assert.ok(!JSON.stringify([...store]).includes('keep current prompt'));assert.ok(!JSON.stringify([...store]).includes('source-shot'));
+assert.ok(!JSON.stringify([...store]).includes('keep current prompt'));assert.ok(!JSON.stringify([...store]).includes('never store this'));assert.ok(![...store.keys()].some(k=>k.includes('astraPrompt')));assert.ok(!JSON.stringify([...store]).includes('source-shot'));
 state.enhancementModel='astra2';state.topazDetails=.2;await settle();state.topazDetails=.4;await settle();
 state.enhancementModel='proteus';state.topazDetails=.2;await settle();assert.equal(state.topazDetails,.75);
 dom.window.dispatchEvent(new dom.window.Event('pagehide'));app.unmount();
 state.topazDetails=.2;state.multiShots[0]={id:'different-shot',prompt:'new prompt remains',duration:3};
 let clicks=0;document.addEventListener('click',()=>clicks++);app=createApp(Root);app.mount('#app');dom.window.eval(source);await settle();
 assert.equal(state.topazDetails,.75);assert.equal(state.multiShots[0].duration,8);assert.equal(state.multiShots[0].id,'different-shot');assert.equal(state.multiShots[0].prompt,'new prompt remains');assert.equal(clicks,0);
-dom.window.dispatchEvent(new dom.window.Event('pagehide'));app.unmount();dom.window.close();console.log('PASS: native video upscale form ID, separate enhancement models, closed parameters, mixed prompt/settings projection, content preserved, reload, zero clicks.');
+dom.window.dispatchEvent(new dom.window.Event('pagehide'));app.unmount();dom.window.close();console.log('PASS: native video upscale form ID, separate enhancement models, closed parameters, mixed prompt/settings projection, named prompt field (astraPrompt) excluded, content preserved, reload, zero clicks.');

@@ -2,12 +2,16 @@ import {spawnSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 
 const root=fileURLToPath(new URL('../',import.meta.url));
-const modes=['', '--native', '--refs', '--editor', '--voice', '--audio', '--music', '--duplicates', '--unlabeled', '--rich-prompt'];
+const modes=['', '--native', '--refs', '--editor', '--voice', '--audio', '--music', '--duplicates', '--unlabeled', '--rich-prompt', '--cinematic'];
 const cases=[
   ...modes.map(mode=>['tests/test-generic-memory.mjs',...(mode?[mode]:[])]),
   ['tests/test-relight-memory.mjs'],
   ['tests/test-adjust-memory.mjs'],
-  ['tests/test-video-upscale-memory.mjs']
+  ['tests/test-video-upscale-memory.mjs'],
+  ['tests/test-video-modify-memory.mjs'],
+  ['tests/test-storage-cleanup.mjs'],
+  ['tests/test-multi-model-memory.mjs'],
+  ['tests/test-model-label.mjs']
 ];
 for(const args of cases){
   console.log('\nTest: '+args.join(' '));

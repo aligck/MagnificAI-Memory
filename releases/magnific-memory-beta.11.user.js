@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Magnific — Tüm Modellerin Ayar Hafızası
 // @namespace    magnific-model-memory
-// @version      3.0.0-beta.16
+// @version      3.0.0-beta.11
 // @description  Ortak kontrol mekanizmasıyla model ayarlarını kaydeder ve tıklamadan geri yükler.
 // @match        https://magnific.ai/*
 // @match        https://*.magnific.ai/*
@@ -9,22 +9,19 @@
 // @match        https://*.magnific.com/*
 // @grant        GM_getValue
 // @grant        GM_setValue
-// @grant        GM_listValues
-// @grant        GM_deleteValue
 // @sandbox      raw
 // @run-at       document-start
 // ==/UserScript==
 
 (() => {
   'use strict';
-  document.documentElement?.setAttribute('data-magnific-memory-version','3.0.0-beta.16');
+  document.documentElement?.setAttribute('data-magnific-memory-version','3.0.0-beta.11');
   const PREFIX = 'magnific-model-memory-v3:control:';
   const OMIT = Symbol('omit');
   const CONTENT = /prompt|instruction|textarea|richinput|script-?editor|text-?editor|contenteditable|reference|upload|file|creationselector|assetpicker|mediapicker|password|search|query|token|secret|credential/i;
   const TRANSIENT = /Modal|Popover|Dialog|(?:open|visible|expanded|loading|pending|hovered|focused)$|^(searchTerm|query|hasChanges|isDefaultSettings|presetApplied)$/i;
   const CONTROL = /slider|select|switch|checkbox|radio|toggle|color|number|numeric|outputax|dimension|duration|seed|preset/i;
-  // Skin Enhancer names its model choice "version" (faithful/creative/flexible).
-  const MODEL = /(?:model|version)(?!.*setting).*(selector|trigger|select)|mode-selector/i;
+  const MODEL = /model(?!.*setting).*(selector|trigger|select)|mode-selector/i;
   // Tools that expose a real form source own their controls; the component chain
   // is checked so a widget record is never written for them, not even while the
   // tool's own marker is still missing from the DOM.
@@ -92,31 +89,12 @@
     }
     return '';
   }
-  // A model control is named by its own field label. The form-wide heading must not
-  // name every control below it (observed live: Sound FX's "Model" heading turned its
-  // loop switch and Generate button into model controls, so the context followed the
-  // switch). label() stays unchanged because stored control identities depend on it.
-  function modelLabel(el){
-    const own=el.getAttribute('aria-label');
-    if(own)return normal(own);
-    const legend=el.closest('fieldset')?.querySelector(':scope > legend');
-    if(legend)return normal(legend.textContent);
-    for(let p=el.parentElement,i=0;p&&i<4;p=p.parentElement,i++){
-      if(p.tagName==='ASIDE'||p.querySelectorAll('button,select,input,[role="slider"],[role="switch"],[role="combobox"]').length>2)break;
-      const heading=p.querySelector(':scope > label, :scope > div > label');
-      if(heading && !heading.contains(el))return normal(heading.textContent);
-    }
-    return '';
-  }
   function modelControls(root) {
     const result = [...root.querySelectorAll('button,select,[role="combobox"]')].filter(el => {
       if(el.getAttribute('aria-hidden')==='true'||!visible(el))return false;
       const cy = el.getAttribute('data-cy') || '';
       if (/setting|attribution|provider|popover|option|help|tour|how-it-works|tooltip|guide/i.test(cy)) return false;
-      // Radix selects keep the stable data-cy on a hidden native select beside the
-      // visible trigger (observed live: Skin Enhancer version-select).
-      const hidden=el.tagName==='SELECT'?null:el.parentElement?.querySelector(':scope > select[aria-hidden="true"][data-cy]');
-      return MODEL.test(cy) || MODEL.test(hidden?.getAttribute('data-cy')||'') || /^(model|ai model)$/i.test(modelLabel(el));
+      return MODEL.test(cy) || /^(model|ai model)$/i.test(label(el));
     });
     return [...new Set(result)];
   }
@@ -244,16 +222,6 @@
     b.stop = watch(() => valueOf(c, prop), value => { wrap(b); store(b,value); }, {deep:true,flush:'sync'});
     void restore(b);
   }
-  // A model switch keeps settings writes closed until the scan has moved the
-  // bindings to the new context. A timer alone is not enough: in a throttled
-  // (background) tab it can fire before that scan, and the app's reset of the
-  // new model would then be written to the previous model's record.
-  function endTransition(ticket){
-    if(ticket!==transitionRevision)return;
-    const root=panel();
-    if(root&&context&&getContext(root)!==context){queue();setTimeout(()=>endTransition(ticket),250);return;}
-    transition=false;queue();
-  }
   function guardModel(c,prop){
     if(!/^(modelValue|value|modelId|mode|selected|selectedModel)$/.test(prop))return;
     const props=c.vnode?.props,key='onUpdate:'+prop,original=props?.[key];
@@ -261,7 +229,7 @@
     const wrapper=value=>{
       transition=true;const ticket=++transitionRevision;
       call(original,value);queue();
-      setTimeout(()=>endTransition(ticket),1000);
+      setTimeout(()=>{if(ticket===transitionRevision){transition=false;queue();}},1000);
     };
     let map=modelBindings.get(c);if(!map){map={};modelBindings.set(c,map);}
     map[prop]=wrapper;props[key]=wrapper;
@@ -300,18 +268,7 @@
       return {id:value.id,...(name===OMIT?{}:{name}),...(category===OMIT?{}:{category})};
     }
     if(TRANSIENT.test(key))return OMIT;
-    // Catalogs the tool ships (relightPresets, lightTransferPresets, ...) are not
-    // user choices; the selected entry lives in its own field (activePresetId).
-    if(/^(?:available.*|(?!selected|active)\w*presets)$|(?:Options|SliderConfig)$/i.test(key))return OMIT;
-    // Free text fields are named after their content (astraPrompt, systemPrompt,
-    // lyrics...). Boolean switches such as smartPrompt stay ordinary settings.
-    if(/(?:prompt|instructions?|script|caption|description|lyrics)$/i.test(key)&&value!==null&&typeof value!=='boolean')return OMIT;
-    // References to the user's own assets and form mode switches are not settings.
-    if(/brandKit|^voices$|^is[A-Z]\w*Mode$/.test(key))return OMIT;
-    // Observed live: the multi-shot prompt mode only exists together with its shots,
-    // which are content and are not kept by the app across reloads. Restoring the
-    // mode alone leaves the form in multi-shot mode with no shots.
-    if(key==='promptType'&&value==='multishot')return OMIT;
+    if(/^(presets|available.*)$|(?:Options|SliderConfig)$/i.test(key))return OMIT;
     if(/^(canvas|canvasNode|artboard|currentImage|inputImage|outputImages|selectedPreview)$/i.test(key))return OMIT;
     if(/^(mediaType|videoDuration|videoFps|isVideoTrimmed|isVideoTrimming)$/i.test(key))return OMIT;
     if(/^(model|modelId|modelIds|draftId|prompt|negativePrompt|instructions|additionalInstructions|script|text|description|caption)$/i.test(key))return OMIT;
@@ -330,20 +287,6 @@
       else if(item&&typeof item==='object')settingLeaves(item,next,out,depth+1);
     }
   }
-  // Image/Video generators have a multi-model mode (modelIds). Its settings belong
-  // to that selection, not to the primary modelId, whose single-model record the
-  // app's mode-switch resets would otherwise overwrite.
-  function modelSelection(state){
-    const ids=Array.isArray(state.modelIds)?state.modelIds.filter(id=>typeof id==='string'&&id):[];
-    return ids.length?'multi::'+[...new Set(ids)].sort().join('+'):state.modelId;
-  }
-  // The real form instance is identified by its owning component's id prop. Several
-  // tools reuse the image generator form markup under their own id (observed live:
-  // Cinematic Shot renders ImageGeneratorForm id="cinematic-shot").
-  function ownerFormId(root,el,pattern){
-    for(let c=componentOwners(root).get(el);c;c=c.parent)if(c.props?.id&&pattern.test(nameOf(c)))return c.props.id;
-    return null;
-  }
   async function connectState(root){
     if(nativeLoading)return;
     const form=root.querySelector('[data-cy="image-generator-form"],[data-cy="video-generator-panel"],[data-cy="enhance-v2-panel"],[data-cy="edit-bar"],[data-cy="audio-generator-form"],[data-cy="audio-generator-panel"],[data-cy="music-generator-form"],[data-cy="voiceover-generator-panel"],[data-cy="relight-mode-toggle"],[data-cy="video-upscaler-type-tabs"],[data-cy="video-modify-form-model-selector"],#adjust-panel');
@@ -354,13 +297,11 @@
       const {core,asset}=application;
       let api,state,model,tool;
       if(form.matches('[data-cy="image-generator-form"]')){
-        tool='image';const formId=ownerFormId(root,form,/^ImageGeneratorForm$/);
-        if(!formId)throw Error('Görsel formu kimliği bulunamadı');
-        const mod=await import(await asset('useImageGeneratorForm'));
-        api=mod.t(formId);state=api.imageGeneratorFormState;model=()=>modelSelection(state);
+        tool='image';const mod=await import(await asset('useImageGeneratorForm'));
+        api=mod.t('image-generator-form');state=api.imageGeneratorFormState;model=()=>state.modelId;
       }else if(form.matches('[data-cy="video-generator-panel"]')){
         tool='video';const mod=await import(await asset('useVideoGeneratorForm'));
-        api=mod.t(core.Os);state=api.videoGeneratorFormState;model=()=>modelSelection(state);
+        api=mod.t(core.Os);state=api.videoGeneratorFormState;model=()=>state.modelId;
       }else if(form.matches('[data-cy="audio-generator-form"],[data-cy="audio-generator-panel"],[data-cy="music-generator-form"],[data-cy="voiceover-generator-panel"]')){
         const music=form.matches('[data-cy="music-generator-form"]'),voice=form.matches('[data-cy="voiceover-generator-panel"]');tool=voice?'voice':music?'music':'audio';
         const owners=componentOwners(root);let owner=owners.get(form),formId;
@@ -391,7 +332,7 @@
         api=mod.m();state=api;model=()=> 'adjust';
       }else if(form.matches('[data-cy="edit-bar"]')){
         tool='editor';const mod=await import(await asset('useImageGeneratorForm'));
-        api=mod.t('talk-to-image');state=api.imageGeneratorFormState;model=()=>modelSelection(state);
+        api=mod.t('talk-to-image');state=api.imageGeneratorFormState;model=()=>state.modelId;
       }else{
         tool='upscale';
         const componentUrl=await asset('SingleCanvasUpscale');
@@ -414,8 +355,6 @@
           if(clean!==OMIT)values[key]=clean;
           else if(stateOption(key,null)!==OMIT)settingLeaves(value,[key],values);
         }
-        // While shots are edited the video duration is their derived total, not a choice.
-        if(tool==='video'&&refValue(stateValues().promptType)==='multishot')delete values.duration;
         if(tool==='adjust'&&api.currentImage?.value){
           values.flipX=!!api.currentImage.value.flipX;values.flipY=!!api.currentImage.value.flipY;
         }
@@ -587,7 +526,7 @@
     });
     if (model && !model.contains(t) || model?.tagName==='SELECT' && event.type==='change') {
       transition=true; const ticket=++transitionRevision;
-      setTimeout(()=>endTransition(ticket),1000);
+      setTimeout(()=>{if(ticket===transitionRevision){transition=false;queue();}},1000);
       return;
     }
     if (!root.contains(t) && !t.closest('[role="dialog"],[role="listbox"]')) return;
@@ -595,27 +534,6 @@
     native?.cancel();
     for(const b of bindings.values()) if(b.restoring){b.ticket++;b.restoring=false;b.ready=true;}
   }
-  // Earlier builds could store tool catalogs, free-text fields and asset
-  // references under state records. Remove only records that the current rules
-  // reject, once per rule revision; control and v2 records are left untouched.
-  function cleanup(){
-    if(typeof GM_listValues!=='function'||typeof GM_deleteValue!=='function')return;
-    const mark='magnific-model-memory-v3:meta:cleanup',revisionOfRules=2;
-    if(GM_getValue(mark,0)>=revisionOfRules)return;
-    for(const k of GM_listValues()){
-      if(typeof k!=='string'||!k.startsWith(PREFIX))continue;
-      let field;try{field=decodeURIComponent(k.slice(k.lastIndexOf(':')+1));}catch{continue;}
-      if(!field.startsWith('state::'))continue;
-      const name=field.slice(7);let reject;
-      if(name.startsWith('partial::')){
-        let path;try{path=JSON.parse(name.slice(9));}catch{continue;}
-        reject=!Array.isArray(path)||path.some(part=>typeof part==='string'&&stateOption(part,null)===OMIT);
-      }else reject=stateOption(name,GM_getValue(k,null)?.value)===OMIT;
-      if(reject)GM_deleteValue(k);
-    }
-    GM_setValue(mark,revisionOfRules);
-  }
-  try{cleanup();}catch(error){console.warn('[Magnific ayar hafızası] Eski kayıt temizliği:',error.message);}
   const observer=new MutationObserver(queue);
   observer.observe(document.documentElement||document,{childList:true,subtree:true,attributes:true,attributeFilter:['value','aria-valuenow','aria-checked','data-state']});
   for(const type of ['pointerdown','input','change']) document.addEventListener(type,edit,true);
