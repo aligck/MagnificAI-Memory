@@ -40,7 +40,7 @@ dom.window.fetch=async url=>({text:async()=>String(url).includes('/index.')?'imp
 dom.window.__core={sp:watch,Rf:nextTick,$:()=>({})};dom.window.__adjust={m:()=>api};
 const Root={setup(){return()=>h('div',{'data-cy':'full-canvas-layout'},[h('div',{id:'adjust-panel'},[h('p','Flip'),h('textarea','prompt stays unchanged')])]);}};
 let app=createApp(Root);app.mount('#app');
-const source=fs.readFileSync(new URL('../src/magnific-memory.user.js',import.meta.url),'utf8').replace('await import(mainUrl)','window.__core').replace("await import(await asset('useGlobalCanvasRetouch'))",'window.__adjust');
+const source=fs.readFileSync(new URL('../src/magnific-memory.user.js',import.meta.url),'utf8').replace('const SETTLE_MS = 3000','const SETTLE_MS = 0').replace('await import(mainUrl)','window.__core').replace("await import(await asset('useGlobalCanvasRetouch'))",'window.__adjust');
 const settle=async()=>{for(let i=0;i<20;i++){await nextTick();await new Promise(r=>setTimeout(r,5));}};
 const record=field=>[...store.entries()].find(([k])=>k.endsWith(encodeURIComponent('state::'+field)))?.[1].value;
 const readyToOpen=()=>{globalCanvas.value={renderAll(){}};currentImage.value={flipX:false,flipY:false};};
@@ -61,7 +61,7 @@ selectedLut.value={name:'no identifier'};await settle();assert.ok(!JSON.stringif
 selectedLut.value=lut;lutIntensity.value=.6;await settle();
 // The flip buttons call the tool's own api; the flip is stored as a boolean and
 // a second flip of an axis already marked as changed still has to persist.
-api.flip('X');await settle();assert.equal(record('flipX'),true);
+api.flip('X');await new Promise(r=>setTimeout(r,700));assert.equal(record('flipX'),true);
 api.flip('Y');await new Promise(r=>setTimeout(r,700));assert.equal(record('flipY'),true);
 await settle();
 assert.ok(!/canvas|currentImage|presets|presetApplied|showPremiumModal|hasChanges|availableAspectRatios|prompt/.test([...store.keys()].join('\n')));

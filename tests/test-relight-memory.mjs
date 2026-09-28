@@ -23,7 +23,7 @@ const Form=defineComponent({name:'RelightToolForm',props:['id'],setup(){return()
 const Root={setup(){return()=>h('aside',[h(Form,{id:'live-relight-form'})]);}};
 let app=createApp(Root);app.mount('#app');
 for(const e of document.querySelectorAll('*'))delete e.__vueParentComponent;
-const source=fs.readFileSync(new URL('../src/magnific-memory.user.js',import.meta.url),'utf8').replace('await import(mainUrl)','window.__core').replace("await import(await asset('useRelightToolForm'))",'window.__relight');
+const source=fs.readFileSync(new URL('../src/magnific-memory.user.js',import.meta.url),'utf8').replace('const SETTLE_MS = 3000','const SETTLE_MS = 0').replace('await import(mainUrl)','window.__core').replace("await import(await asset('useRelightToolForm'))",'window.__relight');
 const settle=async()=>{for(let i=0;i<20;i++){await nextTick();await new Promise(r=>setTimeout(r,5));}};
 dom.window.eval(source);await settle();
 assert.equal(document.querySelector('aside').getAttribute('data-magnific-memory-context'),'/app/tools/relight::default');

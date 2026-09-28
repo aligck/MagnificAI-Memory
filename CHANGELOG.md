@@ -1,5 +1,13 @@
 # Sürüm geçmişi
 
+## 3.1.1 — model geçişinden sonra gelen geç sıfırlama (Firefox)
+
+- Kullanıcı bulgusu (Firefox, Tampermonkey, native form bağlantısı etkin): model seçilince kayıtlı ayarlar geliyor, ardından sitenin varsayılanlarına dönüyordu. Uygulama yeni modelin varsayılanlarını dört geri yükleme geçişinden daha geç yazıyor; script bunu kullanıcı değişikliği sayıp modelin kaydının üzerine de yazıyordu.
+- Native form yolunda geri yüklemeden sonra 3 sn'lik bir oturma penceresi açılır. Bu pencerede kullanıcı hareketi olmadan kayıtlı alanlar değişirse kayıt yeniden uygulanır ve değişiklik kaydedilmez. Kullanıcının ilk gerçek düzenlemesi (tıklama, input/change, kaydırıcı/seçenek klavye tuşları) pencereyi kapatır. Kaydı olmayan modelde pencere açılmaz.
+- Klavye ile yapılan kaydırıcı/seçenek değişiklikleri (ok, Page, Home/End, Space, Enter) artık kullanıcı düzenlemesi sayılır; metin alanlarına yazmak sayılmaz.
+- Sınır: generic widget yolu (native kaynağı olmayan araçlar) bu korumayı henüz almadı. Firefox'ta bu hatadan etkilenen modellerin ayarları bir kez yeniden yapılmalıdır.
+- Yerel testler 20 senaryo: `test-late-reset-memory.mjs` (3.1.0'da başarısız). `test-adjust-memory.mjs` flip X kontrolü periyodik taramayı bekleyecek şekilde düzeltildi (önceden zamanlamaya bağlı aralıklı düşüyordu).
+
 ## 3.1.0 — ilk final sürüm
 
 - Davranış 3.0.0-beta.17 ile aynıdır; yalnızca sürüm numarası değişti. 3.0.0 yerine 3.1.0 seçildi: Tampermonkey'in sürüm karşılaştırması `3.0.0` ile `3.0.0-beta.17` arasında güvenilir değil, 3.1.0 her ortamda daha yeni sayılır. Mevcut kurulumun üzerine güncelleme olarak kurulur; `@name`/`@namespace` değişmedi, kayıtlar korunur.

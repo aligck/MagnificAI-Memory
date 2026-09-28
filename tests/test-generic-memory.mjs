@@ -57,7 +57,7 @@ app.mount('#app');
 if(!editorMode)document.querySelector('#app').setAttribute('data-cy','full-canvas-layout');
 // Magnific uses production Vue: there are no development-only component pointers.
 for(const el of document.querySelectorAll('*'))delete el.__vueParentComponent;
-let source=fs.readFileSync(new URL('../src/magnific-memory.user.js',import.meta.url),'utf8').replace('await import(mainUrl)','window.__testCore').replaceAll("await import(await asset('useImageGeneratorForm'))",'window.__testNativeMod').replace("await import(await asset(voice?'useVoiceoverForm':music?'useMusicGeneratorForm':'useAudioGeneratorForm'))",'window.__testExtraMod').replace('await import(new URL(dependency,componentUrl).href)','window.__testUpscaleMod');
+let source=fs.readFileSync(new URL('../src/magnific-memory.user.js',import.meta.url),'utf8').replace('const SETTLE_MS = 3000','const SETTLE_MS = 0').replace('await import(mainUrl)','window.__testCore').replaceAll("await import(await asset('useImageGeneratorForm'))",'window.__testNativeMod').replace("await import(await asset(voice?'useVoiceoverForm':music?'useMusicGeneratorForm':'useAudioGeneratorForm'))",'window.__testExtraMod').replace('await import(new URL(dependency,componentUrl).href)','window.__testUpscaleMod');
 dom.window.eval(source);
 const settle=async()=>{
   for(let i=0;i<12;i++){await nextTick();await new Promise(r=>setTimeout(r,5));}

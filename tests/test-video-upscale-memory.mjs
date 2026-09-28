@@ -12,7 +12,7 @@ dom.window.__core={sp:watch,Rf:nextTick,$:()=>({})};dom.window.__videoUpscale={i
 const Form={name:'VideoUpscalerToolForm',props:['id'],setup(){return()=>h('div',{},[h('div',{'data-cy':'video-upscaler-type-tabs'},'Creative'),h('button',{'data-cy':'generate-button'},'Upscale')]);}};
 const Root={setup(){return()=>h('aside',[h(Form,{id:'real-form-id'})]);}};
 let app=createApp(Root);app.mount('#app');
-const source=fs.readFileSync(new URL('../src/magnific-memory.user.js',import.meta.url),'utf8').replace('await import(mainUrl)','window.__core').replace("await import(await asset('useVideoUpscaleForm'))",'window.__videoUpscale');
+const source=fs.readFileSync(new URL('../src/magnific-memory.user.js',import.meta.url),'utf8').replace('const SETTLE_MS = 3000','const SETTLE_MS = 0').replace('await import(mainUrl)','window.__core').replace("await import(await asset('useVideoUpscaleForm'))",'window.__videoUpscale');
 const settle=async()=>{for(let i=0;i<20;i++){await nextTick();await new Promise(r=>setTimeout(r,5));}};
 dom.window.eval(source);await settle();
 assert.equal(document.querySelector('[data-magnific-memory-context]').getAttribute('data-magnific-memory-context'),'/app/tools/video-upscaler::topaz::proteus');

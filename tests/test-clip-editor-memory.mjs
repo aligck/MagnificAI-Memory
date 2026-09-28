@@ -22,7 +22,7 @@ const Root={setup(){return()=>h('div',[
   h('aside',{'data-cy':'video-clip-editor-tools-sidebar'},[h(Switch,{modelValue:values.audio,'onUpdate:modelValue':v=>values.audio=v}),h(Segmented,{modelValue:values.multiplier,'onUpdate:modelValue':v=>values.multiplier=v}),h('button',{'data-cy':'generate-button'},'Generate Speed Ramp')])]);}};
 const mount=()=>{const app=createApp(Root);app.config.globalProperties.$router={currentRoute:{value:{matched:[{path:'/app'},{path:'/app/video-clip-editor/:creationId?'}]}}};app.mount('#app');for(const el of document.querySelectorAll('*'))delete el.__vueParentComponent;return app;};
 let app=mount();
-const source=fs.readFileSync(new URL('../src/magnific-memory.user.js',import.meta.url),'utf8').replace('await import(mainUrl)','window.__core').replace("await import(await asset('useVideoModifyForm'))",'window.__videoModify');
+const source=fs.readFileSync(new URL('../src/magnific-memory.user.js',import.meta.url),'utf8').replace('const SETTLE_MS = 3000','const SETTLE_MS = 0').replace('await import(mainUrl)','window.__core').replace("await import(await asset('useVideoModifyForm'))",'window.__videoModify');
 const settle=async()=>{for(let i=0;i<30;i++){await nextTick();await new Promise(r=>setTimeout(r,5));}};
 const aside=()=>document.querySelector('aside');
 dom.window.eval(source);await settle();

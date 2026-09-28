@@ -12,7 +12,8 @@ const cases=[
   ['tests/test-storage-cleanup.mjs'],
   ['tests/test-multi-model-memory.mjs'],
   ['tests/test-model-label.mjs'],
-  ['tests/test-clip-editor-memory.mjs']
+  ['tests/test-clip-editor-memory.mjs'],
+  ['tests/test-late-reset-memory.mjs']
 ];
 for(const args of cases){
   console.log('\nTest: '+args.join(' '));

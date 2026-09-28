@@ -16,7 +16,7 @@ dom.window.__core={sp:watch,Rf:nextTick,$:()=>({}),Os:'video-form'};
 dom.window.__video={t:id=>{assert.equal(id,'video-form');return {videoGeneratorFormState:state};}};
 const Root={setup(){return()=>h('aside',[h('div',{'data-cy':'video-generator-panel'},[h('button',{'data-cy':'generate-button'},'Generate')])]);}};
 let app=createApp(Root);app.mount('#app');
-const source=fs.readFileSync(new URL('../src/magnific-memory.user.js',import.meta.url),'utf8').replace('await import(mainUrl)','window.__core').replace("await import(await asset('useVideoGeneratorForm'))",'window.__video');
+const source=fs.readFileSync(new URL('../src/magnific-memory.user.js',import.meta.url),'utf8').replace('const SETTLE_MS = 3000','const SETTLE_MS = 0').replace('await import(mainUrl)','window.__core').replace("await import(await asset('useVideoGeneratorForm'))",'window.__video');
 const settle=async()=>{for(let i=0;i<20;i++){await nextTick();await new Promise(r=>setTimeout(r,5));}};
 const ctx=()=>document.querySelector('[data-magnific-memory-context]').getAttribute('data-magnific-memory-context');
 const saved=(c,k)=>store.get('magnific-model-memory-v3:control:'+encodeURIComponent(c)+':'+encodeURIComponent('state::'+k))?.value;

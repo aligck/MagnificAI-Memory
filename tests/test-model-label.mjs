@@ -23,7 +23,7 @@ const Root={setup(){return()=>h('aside',[h('div',[h('label','Model'),h('button',
   h('button',{'data-cy':'generate-button'},'Generate')])]);}};
 const app=createApp(Root);app.mount('#app');
 for(const el of document.querySelectorAll('*'))delete el.__vueParentComponent;
-const source=fs.readFileSync(new URL('../src/magnific-memory.user.js',import.meta.url),'utf8').replace('await import(mainUrl)','window.__core');
+const source=fs.readFileSync(new URL('../src/magnific-memory.user.js',import.meta.url),'utf8').replace('const SETTLE_MS = 3000','const SETTLE_MS = 0').replace('await import(mainUrl)','window.__core');
 const settle=async()=>{for(let i=0;i<30;i++){await nextTick();await new Promise(r=>setTimeout(r,5));}};
 const ctx=()=>document.querySelector('aside').getAttribute('data-magnific-memory-context');
 dom.window.eval(source);await settle();

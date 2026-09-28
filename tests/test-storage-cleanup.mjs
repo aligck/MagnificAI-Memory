@@ -38,7 +38,7 @@ dom.window.GM_getValue=(k,d)=>store.has(k)?structuredClone(store.get(k)):d;
 dom.window.GM_setValue=(k,v)=>store.set(k,structuredClone(v));
 dom.window.GM_listValues=()=>[...store.keys()];
 dom.window.GM_deleteValue=k=>store.delete(k);
-const source=fs.readFileSync(new URL('../src/magnific-memory.user.js',import.meta.url),'utf8');
+const source=fs.readFileSync(new URL('../src/magnific-memory.user.js',import.meta.url),'utf8').replace('const SETTLE_MS = 3000','const SETTLE_MS = 0');
 dom.window.eval(source);
 for(const k of rejected)assert.ok(!store.has(k),'rejected record kept: '+decodeURIComponent(k));
 for(const k of kept)assert.ok(store.has(k),'setting record removed: '+decodeURIComponent(k));

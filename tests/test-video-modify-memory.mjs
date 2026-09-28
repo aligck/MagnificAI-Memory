@@ -38,7 +38,7 @@ const Form={name:'VideoModifyToolForm',props:['id'],setup(){return()=>h('div',{}
   h('button',{'data-cy':'generate-button'},'Modify video')]);}};
 const Root={setup(){return()=>h('aside',[h(Form,{id:'live-modify-form'})]);}};
 let app=createApp(Root);app.mount('#app');
-const source=fs.readFileSync(new URL('../src/magnific-memory.user.js',import.meta.url),'utf8').replace('await import(mainUrl)','window.__core').replace("await import(await asset('useVideoModifyForm'))",'window.__videoModify');
+const source=fs.readFileSync(new URL('../src/magnific-memory.user.js',import.meta.url),'utf8').replace('const SETTLE_MS = 3000','const SETTLE_MS = 0').replace('await import(mainUrl)','window.__core').replace("await import(await asset('useVideoModifyForm'))",'window.__videoModify');
 const settle=async()=>{for(let i=0;i<20;i++){await nextTick();await new Promise(r=>setTimeout(r,5));}};
 const key=(model,field)=>'magnific-model-memory-v3:control:'+encodeURIComponent('/app/tools/video-modify::'+model)+':'+encodeURIComponent('state::'+field);
 const saved=(model,field)=>store.get(key(model,field))?.value;

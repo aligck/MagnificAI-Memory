@@ -1,5 +1,9 @@
 # Güncel durum
 
+## 3.1.1 (28 Eylül 2026) — Firefox ilk kullanım
+
+Kullanıcı Firefox + Tampermonkey'de denedi. İlk açılışta "Tampermonkey bu sayfaya erişemiyor" uyarısı, izin öncesi açılmış sekmeden kaynaklandı; yenileyince script çalıştı (`HATA: yok | NATIVE: true`). Ardından model seçiminde ayarların önce gelip sonra site varsayılanına döndüğü görüldü → sitenin geç sıfırlaması; 3.1.1'deki oturma penceresiyle düzeltildi (ayrıntı `CHANGELOG.md`). 3.1.1'in Firefox'ta canlı doğrulaması kullanıcıdan bekleniyor; hangi araçta görüldüğü henüz kayıtlı değil.
+
 ## Final özeti — 3.1.0 (27 Eylül 2026)
 
 `releases/magnific-memory-3.1.0.user.js` final sürümdür (davranışı beta.17 ile aynı). Chrome'da gerçek Tampermonkey ile canlı doğrulanan araçlar: Image Generator (çoklu model dahil değil: bu yayında Image formunda yok), Video Generator (çoklu model, multi-shot), Image Editor, Editor Adjust (flip/intensity), Image Upscaler (6 mod), Relight, Cinematic Shot, Skin Enhancer, Video Upscaler, Modify Video (standalone ve Clip Editor), Music, Voice, Audio, Sound FX, Voice Changer; generic yolla yakalanan: Variations, Change Camera, Mockup, Image to 3D, Video Relight, Video Dubbing, hız rampası ses/smoothness.
